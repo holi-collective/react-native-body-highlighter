@@ -18,7 +18,8 @@ export type Slug =
   | "chest"
   | "deltoids"
   | "deltoids"
-  | "feet"
+  | "feetRight"
+  | "feetLeft"
   | "forearm"
   | "gluteal"
   | "hamstring"
@@ -67,7 +68,9 @@ const Body = ({
     (dataSource: ReadonlyArray<BodyPart>) => {
       const innerData = data
         .map((d) => {
-          return dataSource.find((t) => t.slug === d.slug);
+          return dataSource.find((t) => {
+            return (t.slug === d.slug)
+          });
         })
         .filter(Boolean);
 
