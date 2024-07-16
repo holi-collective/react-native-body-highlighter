@@ -1,7 +1,15 @@
 {
   "name": "@teambuildr/react-native-body-highlighter",
   "version": "3.0.1",
+  "description": "A forked version with left and right sides of body separated with a modified oval head for the male body only",
   "main": "index.tsx",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TeamBuildr/react-native-body-highlighter.git"
+  },
   "author": "HichamELBSI",
   "license": "MIT",
   "keywords": [
@@ -15,13 +23,6 @@
     "color",
     "svg"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:teambuildr/react-native-body-highlighter.git"
-  },
-  "scripts": {
-    "test": "jest"
-  },
   "dependencies": {
     "ramda": "^0.29.1",
     "react-native-svg": "^14.1.0"
