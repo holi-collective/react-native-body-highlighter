@@ -281,7 +281,7 @@ export const bodyBack: BodyPart[] = [
   },
   {
     slug: "head-back",
-    color: "#bebebe",
+    color: "#cccccc",
     pathArray: [
       "M1022,170 a55,75 0 1,0 120,0 a60,75 0 1,0 -120,0",
       "M1012,180 a12,20 -43 1,1 30,0 a15,25 0 1,1 -30,0",
