@@ -1,6 +1,6 @@
 {
   "name": "@teambuildr/react-native-body-highlighter",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "A forked version with left and right sides of body separated with a modified oval head for the male body only",
   "main": "index.tsx",
   "scripts": {
@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "ramda": "^0.29.1",
-    "react-native-svg": "^14.1.0"
+    "react-native-svg": "^15.8.0"
   },
   "peerDependencies": {
     "react": "*",
