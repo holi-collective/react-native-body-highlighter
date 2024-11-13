@@ -98,11 +98,12 @@ type Props = {
 const comparison = (a: BodyPart, b: BodyPart) => a.slug === b.slug;
 
 const Body = ({
-  colors,
   data,
-  scale,
-  side,
   gender = "male",
+  scale = 1,
+  colors=  ["#0984e3", "#74b9ff"],
+  zoomOnPress = false,
+  side = "front",
   onBodyPartPress,
 }: Props) => {
   const mergedBodyParts = useCallback(
@@ -164,13 +165,6 @@ const Body = ({
   }
 
   return renderBodySvg(side === "front" ? bodyFront : bodyBack);
-};
-
-Body.defaultProps = {
-  scale: 1,
-  colors: ["#0984e3", "#74b9ff"],
-  zoomOnPress: false,
-  side: "front",
 };
 
 export default memo(Body);
