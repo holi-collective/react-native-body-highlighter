@@ -1,6 +1,7 @@
+
 import React, { memo, useCallback } from "react";
-import { Path } from "react-native-svg";
-import differenceWith from "ramda/src/differenceWith";
+import { Path } from "./components/SvgComponents";
+import { differenceWith } from "ramda";
 
 import { bodyFront } from "./assets/bodyFront";
 import { bodyBack } from "./assets/bodyBack";
@@ -75,11 +76,35 @@ export type Slug =
 | "triceps-left-back"
 | "triceps-right-back"
 | "upper-back-left"
-| "upper-back-right";
+| "upper-back-right"
+// Female slugs
+| "hair"
+| "neck"
+| "trapezius"
+| "deltoids"
+| "upper-back"
+| "lower-back"
+| "triceps"
+| "forearm"
+| "hands"
+| "gluteal"
+| "adductors"
+| "hamstring"
+| "calves"
+| "feet"
+| "head"
+| "chest"
+| "biceps"
+| "obliques"
+| "abs"
+| "quadriceps"
+| "knees"
+| "tibialis"
+| "ankles";
 
 export interface BodyPart {
   intensity?: number;
-  color: string;
+  color?: string;
   slug: Slug;
   pathArray?: string[];
 }
@@ -88,10 +113,11 @@ type Props = {
   colors: ReadonlyArray<string>;
   data: ReadonlyArray<BodyPart>;
   scale: number;
-  frontOnly: boolean;
-  backOnly: boolean;
+  frontOnly?: boolean;
+  backOnly?: boolean;
   side: "front" | "back";
   gender?: "male" | "female";
+  zoomOnPress?: boolean;
   onBodyPartPress: (b: BodyPart) => void;
 };
 
@@ -131,10 +157,7 @@ const Body = ({
   );
 
   const getColorToFill = (bodyPart: BodyPart) => {
-    let color;
-    if (bodyPart.intensity) color = colors[bodyPart.intensity];
-    else color = bodyPart.color;
-    return color;
+    return bodyPart.color || "#cccccc";
   };
 
   const renderBodySvg = (data: ReadonlyArray<BodyPart>) => {
@@ -143,10 +166,10 @@ const Body = ({
       <SvgWrapper side={side} scale={scale}>
         {mergedBodyParts(data).map((bodyPart: BodyPart) => {
           if (bodyPart.pathArray) {
-            return bodyPart.pathArray.map((path: string) => {
+            return bodyPart.pathArray.map((path: string, i) => {
               return (
                 <Path
-                  key={path}
+                  key={`${path}-${i}`}
                   onPress={() => onBodyPartPress?.(bodyPart)}
                   id={bodyPart.slug}
                   fill={getColorToFill(bodyPart)}
@@ -155,6 +178,7 @@ const Body = ({
               );
             });
           }
+          return null
         })}
       </SvgWrapper>
     );

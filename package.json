@@ -1,10 +1,12 @@
 {
   "name": "@teambuildr/react-native-body-highlighter",
   "version": "3.0.7",
-  "description": "A forked version with left and right sides of body separated with a modified oval head for the male body only",
+  "description": "A forked version with left and right sides of body separated with a modified oval head for the male body only - now compatible with React web",
   "main": "index.tsx",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -15,26 +17,36 @@
   "keywords": [
     "reactnative",
     "react",
+    "web",
     "muscle",
     "muscles",
     "body",
     "highlighter",
     "highlight",
     "color",
-    "svg"
+    "svg",
+    "cross-platform"
   ],
   "dependencies": {
-    "ramda": "^0.29.1",
-    "react-native-svg": "^15.8.0"
+    "ramda": "^0.29.1"
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-svg": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native": {
+      "optional": true
+    },
+    "react-native-svg": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/ramda": "^0.26.16",
-    "@types/react": "^16.8.23",
+    "@types/react": "^19.1.8",
     "@types/react-native": "^0.60.2",
     "jest": "^24.8.0",
     "react-native-typescript-transformer": "^1.2.12",

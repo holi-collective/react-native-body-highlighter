@@ -3,7 +3,16 @@
 [![npm](https://img.shields.io/npm/v/react-native-body-highlighter.svg)](https://www.npmjs.com/package/react-native-body-highlighter) [![Downloads](https://img.shields.io/npm/dt/react-native-body-highlighter.svg)](https://www.npmjs.com/package/react-native-body-highlighter)
 [![CircleCI](https://circleci.com/gh/HichamELBSI/react-native-body-highlighter.svg?style=svg)](https://circleci.com/gh/HichamELBSI/react-native-body-highlighter)
 
-> SVG human body parts highlighter for react-native (Expo compatible).
+> 🎉 **Now Cross-Platform!** SVG human body parts highlighter for React Native and React Web (Expo compatible).
+
+## ✨ What's New
+
+- ✅ **React Web Support** - Works seamlessly in web browsers
+- ✅ **Cross-Platform** - Same API for React Native and React Web
+- ✅ **Zero Breaking Changes** - Existing React Native code works unchanged
+- ✅ **Automatic Platform Detection** - No configuration needed
+
+📖 **For detailed cross-platform documentation**, see [README-CROSS-PLATFORM.md](./README-CROSS-PLATFORM.md)
 
 <div style="text-align:center;width:100%;">
   <img src="./docs/screenshots/example-female-front.PNG" width="150" alt="body-highlighter" />
@@ -14,17 +23,33 @@
 
 ## Installation
 
-npm
+### For React Native Projects
 
+npm
+```bash
+$ npm install react-native-body-highlighter react-native-svg
+```
+
+yarn
+```bash
+$ yarn add react-native-body-highlighter react-native-svg
+```
+
+Then follow the [react-native-svg installation guide](https://github.com/react-native-svg/react-native-svg).
+
+### For React Web Projects
+
+npm
 ```bash
 $ npm install react-native-body-highlighter
 ```
 
 yarn
-
 ```bash
 $ yarn add react-native-body-highlighter
 ```
+
+**No additional dependencies needed!** The library automatically detects the web environment.
 
 ## Usage
 

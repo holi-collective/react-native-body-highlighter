@@ -1,5 +1,5 @@
 import * as React from "react";
-import Svg, { G, Path } from "react-native-svg";
+import { Svg, G, Path } from "./SvgComponents";
 
 type SvgWrapperProps = {
   children: React.ReactNode;
