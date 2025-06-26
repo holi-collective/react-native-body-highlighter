@@ -1,7 +1,6 @@
 
 import React, { memo, useCallback } from "react";
 import { Path } from "./components/SvgComponents";
-import { differenceWith } from "ramda";
 
 import { bodyFront } from "./assets/bodyFront";
 import { bodyBack } from "./assets/bodyBack";
@@ -123,6 +122,24 @@ type Props = {
 
 const comparison = (a: BodyPart, b: BodyPart) => a.slug === b.slug;
 
+// Re-implementation of Ramda's differenceWith to avoid module import issues.
+function differenceWith<T>(pred: (a: T, b: T) => boolean, listA: readonly T[], listB: readonly T[]): T[] {
+    const result: T[] = [];
+    for (const itemA of listA) {
+        let found = false;
+        for (const itemB of listB) {
+            if (pred(itemA, itemB)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result.push(itemA);
+        }
+    }
+    return result;
+}
+
 const Body = ({
   data,
   gender = "male",
@@ -163,7 +180,7 @@ const Body = ({
   const renderBodySvg = (data: ReadonlyArray<BodyPart>) => {
     const SvgWrapper = gender === "male" ? SvgMaleWrapper : SvgFemaleWrapper;
     return (
-      <SvgWrapper side={side} scale={scale}>
+      <SvgWrapper side={side} scale={scale} gender={gender}>
         {mergedBodyParts(data).map((bodyPart: BodyPart) => {
           if (bodyPart.pathArray) {
             return bodyPart.pathArray.map((path: string, i) => {
